@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const isOpen = nav.classList.toggle('open');
         toggle.setAttribute('aria-expanded', String(isOpen));
         
-        // Optional: Prevent background scrolling when menu is open
+        // Prevent background scrolling when menu is open
         document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setTheme(isDark ? 'light' : 'dark');
     });
 
-    // Listen for system theme changes (optional but nice)
+    // Listen for system theme changes 
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
         // Only change if user hasn't explicitly set a preference
         if (!localStorage.getItem('theme')) {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Close mobile menu when clicking on a link (useful for single-page apps)
+    // Close mobile menu when clicking on a link 
     document.querySelectorAll('.nav a').forEach(link => {
         link.addEventListener('click', () => {
             nav.classList.remove('open');
