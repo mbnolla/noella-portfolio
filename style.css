@@ -17,10 +17,16 @@ body.dark {
   --muted:#9AA9B6;
 }
 
+/* Smooth scrolling and offset to prevent header from covering content */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; 
+}
+
 /* Base reset */
 * { box-sizing: border-box; }
-html, body { min-height: 100vh; } /* FIXED: Changed from height: 100% to allow sticky header */
 body {
+  min-height: 100vh;
   margin: 0;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background: var(--bg);
@@ -41,10 +47,10 @@ body {
 
 /* Header */
 .site-header {
-  background: var(--surface); /* FIXED: Automatically adapts to dark/light mode */
+  background: var(--surface);
   position: sticky;
   top: 0;
-  z-index: 1000; /* FIXED: Increased to ensure it stays above all content */
+  z-index: 1000; 
   border-bottom: 1px solid rgba(0,0,0,0.05);
   opacity: 0.95; 
   backdrop-filter: blur(6px);
