@@ -1,20 +1,21 @@
+/* Light theme default colors */
 :root {
   --bg: #FAFBFD;
-  --surface:#FFFFFF;
-  --text:#0F172A;
-  --muted:#6B7280;
-  --accent:#0EA5A4;
-  --radius:12px;
-  --max-width:1100px;
-  --container-padding:1rem;
+  --surface: #FFFFFF;
+  --text: #0F172A;
+  --muted: #6B7280;
+  --accent: #0EA5A4;
+  --radius: 12px;
+  --max-width: 1100px;
+  --container-padding: 1rem;
 }
 
-/* Dark theme overrides (JS toggles body.dark) */
-body.dark {
-  --bg:#0b1220;
-  --surface:#07102a;
-  --text:#E6EEF5;
-  --muted:#9AA9B6;
+/* Dark theme overrides (Forced to root for better browser support) */
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --surface: #07102a;
+  --text: #E6EEF5;
+  --muted: #9AA9B6;
 }
 
 /* Smooth scrolling and offset to prevent header from covering content */
@@ -24,7 +25,11 @@ html {
 }
 
 /* Base reset */
-* { box-sizing: border-box; }
+* { 
+  box-sizing: border-box; 
+}
+
+/* Body styling with smooth transition for dark mode */
 body {
   min-height: 100vh;
   margin: 0;
@@ -35,6 +40,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
   font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Utility container */
@@ -54,6 +60,7 @@ body {
   border-bottom: 1px solid rgba(0,0,0,0.05);
   opacity: 0.95; 
   backdrop-filter: blur(6px);
+  transition: background-color 0.3s ease;
 }
 .header-inner {
   display: flex;
@@ -99,6 +106,7 @@ body {
   background: none; 
   border: 0; 
   padding: 8px; 
+  cursor: pointer;
 }
 .burger { 
   display: inline-block; 
@@ -118,6 +126,13 @@ body {
 }
 .burger::before { top: -6px; } 
 .burger::after { top: 6px; }
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
 
 /* HERO */
 .hero { padding: 3rem 0; }
@@ -254,6 +269,15 @@ body {
   margin-top: auto; 
   display: flex; 
   gap: 0.5rem; 
+}
+.track-badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: -0.25rem;
+  display: block;
 }
 
 /* Tech Stack Chips (for Projects) */
